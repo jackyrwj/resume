@@ -1,0 +1,7 @@
+name = "resume"
+type = "javascript"
+compatibility_date = "2025-11-25"
+
+[env.production]
+name = "resume-production"
+

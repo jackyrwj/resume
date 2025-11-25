@@ -46,6 +46,22 @@
 
 如果你有自己的域名，可以在 Cloudflare Pages 项目设置中配置自定义域名。
 
+## 故障排除
+
+### 如果部署失败
+
+1. 检查 Cloudflare Pages 的部署日志
+2. 确保 `public` 目录存在且包含 `index.html`
+3. 确保 `npm run build` 命令能在本地成功运行
+
+### 本地测试构建
+
+```bash
+npm run build
+```
+
+这会生成 `public` 目录，其中包含所有静态文件。
+
 ## 就这么简单！
 
 不需要 API Token，不需要 GitHub Actions，直接连接就可以了。🚀
