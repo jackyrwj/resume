@@ -2,7 +2,8 @@ module.exports = {
   // Cloudflare Pages 部署时不需要 pathPrefix
   // pathPrefix: '/resume',
   siteMetadata: {
-    title: 'Resume Generator',
+    title: 'Resume Creator - 在线简历制作',
+    description: '免费在线简历制作工具，支持多种模板、自定义主题色、国际化(中/英)、实时预览和PDF下载。快速创建专业简历，无需编程基础。',
     githubUrl: 'https://github.com/jackyrwj/resume',
     author: 'jackyrwj',
     contact: 'https://github.com/jackyrwj',

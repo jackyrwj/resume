@@ -21,8 +21,8 @@ const Header: React.FC = () => {
   return (
     <header>
       <span className="brand">
-        <span className="brand-title">Resume Generator</span>
-        <span className="brand-subtitle">在线简历生成器</span>
+        <span className="brand-title">Resume Creator</span>
+        <span className="brand-subtitle">在线简历制作</span>
       </span>
       <nav className="nav-center">
         <div className="nav-item mode-switcher-wrapper">{ModeSwitcher}</div>

@@ -1,6 +1,7 @@
 {
-  "name": "resume",
+  "name": "resume-creator",
   "version": "1.1.5",
+  "description": "免费在线简历制作工具，支持多种模板、自定义主题色、国际化(中/英)、实时预览和PDF下载。",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
@@ -71,7 +72,11 @@
     "url": "git@github.com:your-github-username/resume.git"
   },
   "keywords": [
-    "resume"
+    "resume",
+    "resume-creator",
+    "简历制作",
+    "在线简历",
+    "简历生成器"
   ],
   "author": "your-name <your-email@example.com>",
   "license": "MIT",
