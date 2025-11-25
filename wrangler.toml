@@ -1,0 +1,25 @@
+name = "resume"
+type = "javascript"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+
+[env.production]
+name = "resume-production"
+route = ""
+zone_id = ""
+
+[build]
+command = "npm run build"
+cwd = "./"
+watch_paths = ["src/**/*.ts", "src/**/*.tsx", "src/**/*.less"]
+
+[build.upload]
+format = "service-worker"
+main = "./public/index.html"
+
+[env.production.build]
+command = "npm run build"
+cwd = "./"
+
