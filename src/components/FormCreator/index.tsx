@@ -3,6 +3,7 @@ import { Form, Input, InputNumber, Button, Checkbox, Select } from 'antd';
 import { FormItemProps } from 'antd/lib/form';
 import _ from 'lodash-es';
 import { ColorPicker } from './ColorPicker';
+import { AvatarUpload } from './AvatarUpload';
 import { FormattedMessage } from 'react-intl';
 
 type Props = {
@@ -41,6 +42,8 @@ const FormItemComponentMap = (type: string) => (
       return <Input.TextArea {...props} />;
     case 'color-picker':
       return <ColorPicker {...props} />;
+    case 'avatar-upload':
+      return <AvatarUpload {...props} />;
     default:
       return <Input />;
   }

@@ -95,9 +95,9 @@ export const CONTENT_OF_MODULE = ({ intl }) => {
         },
       },
       {
-        type: 'input',
+        type: 'avatar-upload',
         attributeId: 'src',
-        displayName: intl.formatMessage({ id: '头像地址' }),
+        displayName: intl.formatMessage({ id: '头像' }),
         cfg: {
           placeholder: 'https://xxx.png',
         },
