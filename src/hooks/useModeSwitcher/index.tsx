@@ -47,15 +47,23 @@ export const useModeSwitcher = ({
       {mode === 'edit' &&
         (canPreview ? (
           <Popover content={<FormattedMessage id="无用户信息，不允许预览" />}>
-            <span>
+            <span className={cx('mode-item', 'disabled')}>
               <FormattedMessage id="预览" />
             </span>
           </Popover>
         ) : (
-          <span className={cx('mode-item')} onClick={() => changeMode('read')}>
+          <span
+            className={cx('mode-item', 'active')}
+            onClick={() => changeMode('read')}
+          >
             <FormattedMessage id="预览" />
           </span>
         ))}
+      {mode === 'read' && (
+        <span className={cx('mode-item', 'active')}>
+          <FormattedMessage id="编辑" />
+        </span>
+      )}
     </div>,
     mode,
     changeMode,

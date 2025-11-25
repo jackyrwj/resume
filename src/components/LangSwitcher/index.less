@@ -1,22 +1,62 @@
 .language-switcher {
-  margin: 0 7px;
-  display: inline-block;
-  font-size: 12px;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 500;
+
+  span.lang {
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 1);
+    }
+  }
 
   .divider {
     padding: 0 4px;
+    color: rgba(255, 255, 255, 0.5);
   }
 }
 
 body[lang='en-US'] {
   .language-switcher span[data-lang='zh-CN'] {
-    color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+
+  span[data-lang='en-US'] {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 1);
+    font-weight: 600;
   }
 }
+
 body[lang='zh-CN'] {
   .language-switcher span[data-lang='en-US'] {
-    color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+
+  span[data-lang='zh-CN'] {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 1);
+    font-weight: 600;
   }
 }

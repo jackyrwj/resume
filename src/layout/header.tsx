@@ -24,18 +24,25 @@ const Header: React.FC = () => {
         <span className="brand-title">Resume Generator</span>
         <span className="brand-subtitle">在线简历生成器</span>
       </span>
-      <span>
-        {ModeSwitcher}
+      <nav className="nav-center">
+        <div className="nav-item mode-switcher-wrapper">{ModeSwitcher}</div>
         {mode === 'read' && (
-          <span className={'action-link'} onClick={() => window.print()}>
-            <FormattedMessage id="下载 PDF" />
-          </span>
+          <div className="nav-item">
+            <span className={'action-btn'} onClick={() => window.print()}>
+              <FormattedMessage id="下载 PDF" />
+            </span>
+          </div>
         )}
-        <span className={'action-link'} onClick={gotoOnlineVersion}>
-          在线版本
-        </span>
-        <LangSwitcher />
-      </span>
+        <div className="nav-item">
+          <span className={'action-btn'} onClick={gotoOnlineVersion}>
+            在线版本
+          </span>
+        </div>
+        <div className="nav-item lang-switcher-wrapper">
+          <LangSwitcher />
+        </div>
+      </nav>
+      <span className="spacer"></span>
     </header>
   );
 };
