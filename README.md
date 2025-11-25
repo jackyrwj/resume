@@ -1,6 +1,6 @@
 ## 🧾 Resume Generator
 
-在线简历生成器。无须 fork 仓库，即可在线预览、编辑和下载 PDF 简历。✨ 在线预览链接请替换为你自己的部署地址（例如: https://your-github-username.github.io/resume）。
+在线简历生成器。无须 fork 仓库，即可在线预览、编辑和下载 PDF 简历。✨ 在线预览链接请替换为你自己的部署地址（例如: https://jackyrwj.github.io/resume）。
 
 内置 3 套模板，支持**自定义主题颜色**、**自定义模块标题**、**国际化(中/英)** 等.
 
@@ -13,15 +13,15 @@
 
 **方式 1:**
 
-在线编辑 -> 导出配置 -> 存储“简历信息”在个人 github special 仓库下（例如: [your-github-username/your-github-username](https://github.com/your-github-username/your-github-username/blob/master/resume.json)）
+在线编辑 -> 导出配置 -> 存储“简历信息”在个人 github special 仓库下（例如: [jackyrwj/jackyrwj](https://github.com/jackyrwj/jackyrwj/blob/master/resume.json)）
 
 **方式 2:**
 
-直接创建一个 `resume.json` 文件在自己的 special 仓库下 (内容参考: [your-github-username/your-github-username](https://github.com/your-github-username/your-github-username/blob/master/resume.json)).
+直接创建一个 `resume.json` 文件在自己的 special 仓库下 (内容参考: [jackyrwj/jackyrwj](https://github.com/jackyrwj/jackyrwj/blob/master/resume.json)).
 
 **最后**
 
-访问你的部署地址，例如：https://your-github-username.github.io/resume?user={user}&branch={branch}
+访问你的部署地址，例如：https://jackyrwj.github.io/resume?user={user}&branch={branch}
 
 参数说明:
 
