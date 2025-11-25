@@ -3,7 +3,7 @@ import type { ResumeConfig } from '@/components/types';
 /** 初始化常量 */
 export const RESUME_INFO: ResumeConfig = {
   avatar: {
-    src: undefined,
+    src: 'https://avatars.githubusercontent.com/u/32791282?v=4',
     hidden: false,
   },
   profile: {
@@ -160,7 +160,10 @@ export const RESUME_INFO: ResumeConfig = {
           skill_level: 80,
         },
       ],
-      avatar: { hidden: false },
+      avatar: {
+        src: 'https://avatars.githubusercontent.com/u/32791282?v=4',
+        hidden: false,
+      },
       educationList: [
         {
           edu_time: ['2014.09.01', '2018.06.30'],
