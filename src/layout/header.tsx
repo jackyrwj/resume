@@ -1,5 +1,6 @@
 import React from 'react';
 import { LangSwitcher } from '@/components/LangSwitcher';
+import { TemplateSwitcher } from '@/components/TemplateSwitcher';
 import { getMode, useModeSwitcher } from '@/hooks/useModeSwitcher';
 import { getSearchObj } from '@/helpers/location';
 import { FormattedMessage } from 'react-intl';
@@ -25,6 +26,9 @@ const Header: React.FC = () => {
         <span className="brand-subtitle">在线简历生成器</span>
       </span>
       <nav className="nav-center">
+        <div className="nav-item">
+          <TemplateSwitcher />
+        </div>
         <div className="nav-item mode-switcher-wrapper">{ModeSwitcher}</div>
         {mode === 'read' && (
           <div className="nav-item">
