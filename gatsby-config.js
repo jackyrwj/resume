@@ -1,10 +1,11 @@
 module.exports = {
-  pathPrefix: '/resume',
+  // Cloudflare Pages 部署时不需要 pathPrefix
+  // pathPrefix: '/resume',
   siteMetadata: {
     title: 'Resume Generator',
-	  githubUrl: 'https://github.com/your-github-username/resume.git',
-	  author: 'your-github-username',
-	  contact: 'https://github.com/your-github-username',
+    githubUrl: 'https://github.com/your-github-username/resume.git',
+    author: 'your-github-username',
+    contact: 'https://github.com/your-github-username',
   },
   flags: {
     DEV_SSR: false,

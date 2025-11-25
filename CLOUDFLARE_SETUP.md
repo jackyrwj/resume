@@ -23,10 +23,11 @@
 
 在 "Set up builds and deployments" 页面，配置以下内容：
 
-- **Framework preset**: None
+- **Framework preset**: Gatsby
 - **Build command**: `npm run build`
 - **Build output directory**: `public`
 - **Root directory**: `/` (默认)
+- **Node version**: 18 或更高
 
 ### 步骤 5：部署
 
@@ -48,19 +49,43 @@
 
 ## 故障排除
 
-### 如果部署失败
+### 如果部署失败或页面无法加载
 
-1. 检查 Cloudflare Pages 的部署日志
-2. 确保 `public` 目录存在且包含 `index.html`
-3. 确保 `npm run build` 命令能在本地成功运行
+1. **检查部署日志**
+   - 在 Cloudflare Pages 项目中查看部署日志
+   - 查找任何错误信息
 
-### 本地测试构建
+2. **本地测试构建**
+   ```bash
+   npm run build
+   ```
+   确保 `public` 目录存在且包含 `index.html`
 
-```bash
-npm run build
-```
+3. **清理缓存**
+   - 在 Cloudflare Pages 项目设置中点击"Clear cache"
+   - 然后重新部署
 
-这会生成 `public` 目录，其中包含所有静态文件。
+4. **检查路由配置**
+   - 确保 `static/_redirects` 文件存在
+   - 确保 `static/_headers` 文件存在
+
+### 常见问题
+
+**Q: 页面显示 404？**
+A: 检查 `static/_redirects` 文件是否正确配置
+
+**Q: 页面加载很慢？**
+A: 检查 `static/_headers` 文件中的缓存策略是否正确
+
+**Q: 样式没有加载？**
+A: 清除浏览器缓存，或在 Cloudflare 中清除缓存
+
+## 优化建议
+
+1. **使用 Gatsby Framework preset**（而不是 None）
+2. **确保 Node 版本 >= 18**
+3. **启用 Cloudflare 的缓存**
+4. **使用 `_redirects` 和 `_headers` 文件优化路由和缓存**
 
 ## 就这么简单！
 
