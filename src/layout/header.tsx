@@ -12,13 +12,18 @@ const Header: React.FC = () => {
   function gotoOnlineVersion() {
     const query = getSearchObj();
     if (typeof window !== 'undefined') {
-      window.open(`https://visiky.github.io/resume/?user=${query.user}`);
+      const { origin, pathname } = window.location;
+      const search = query.user ? `?user=${query.user}` : '';
+      window.open(`${origin}${pathname}${search}`);
     }
   }
 
   return (
     <header>
-      <span />
+      <span className="brand">
+        <span className="brand-title">Resume Generator</span>
+        <span className="brand-subtitle">在线简历生成器</span>
+      </span>
       <span>
         {ModeSwitcher}
         {mode === 'read' && (

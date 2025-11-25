@@ -26,7 +26,7 @@ const codec = jsonUrl('lzma');
 export const Page: React.FC = () => {
   const lang = getLanguage();
   const intl = useIntl();
-  const user = getSearchObj().user || 'visiky';
+  const user = getSearchObj().user || 'your-github-username';
 
   const [, mode, changeMode] = useModeSwitcher({});
 
@@ -47,7 +47,7 @@ export const Page: React.FC = () => {
     } = window.location;
     const hash = currentHash === '#/' ? '' : currentHash;
     const searchObj = qs.parse(currentSearch);
-    if (!searchObj.template) {
+    if (!searchObj.template && config) {
       const search = qs.stringify({
         template: config?.template || 'template1',
         ...qs.parse(currentSearch),
@@ -93,24 +93,31 @@ export const Page: React.FC = () => {
     }
 
     if (!mode) {
-      const link = `https://github.com/${user}/${user}/tree/${branch}`;
-      fetchResume(lang, branch, user)
-        .then(data => store(data))
-        .catch(() => {
-          Modal.info({
-            title: <FormattedMessage id="获取简历信息失败" />,
-            content: (
-              <div>
-                请检查用户名 {user} 是否正确或者简历信息是否在
-                <a href={link} target="_blank">{`${link}/resume.json`}</a>下
-              </div>
-            ),
-            okText: <FormattedMessage id="进入在线编辑" />, // intl.formatMessage({ id: '进入在线编辑' }),
-            onOk: () => {
-              changeMode('edit');
-            },
-          });
+      // If no user is provided, use default template data
+      if (!user) {
+        getConfig(lang, branch, user).then(data => {
+          store(data);
         });
+      } else {
+        const link = `https://github.com/${user}/${user}/tree/${branch}`;
+        fetchResume(lang, branch, user)
+          .then(data => store(data))
+          .catch(() => {
+            Modal.info({
+              title: <FormattedMessage id="获取简历信息失败" />,
+              content: (
+                <div>
+                  请检查用户名 {user} 是否正确或者简历信息是否在
+                  <a href={link} target="_blank">{`${link}/resume.json`}</a>下
+                </div>
+              ),
+              okText: <FormattedMessage id="进入在线编辑" />, // intl.formatMessage({ id: '进入在线编辑' }),
+              onOk: () => {
+                changeMode('edit');
+              },
+            });
+          });
+      }
     } else {
       if (query.data) {
         codec.decompress(query.data).then(data => {
@@ -251,16 +258,20 @@ export const Page: React.FC = () => {
                       cursor: 'pointer',
                     }}
                     onClick={() => {
-                      const user = query.user || 'visiky';
-                      window.open(`https://github.com/${user}/${user}`);
+                      const exampleUser = query.user || 'your-github-username';
+                      window.open(
+                        `https://github.com/${exampleUser}/${exampleUser}`
+                      );
                     }}
                   >
-                    {`${query.user || 'visiky'}'s resumeInfo`}
+                    {`${query.user || 'your-github-username'}'s resumeInfo`}
                   </span>
                   <span>
-                    {`（https://github.com/${query.user || 'visiky'}/${
-                      query.user || 'visiky'
-                    }/blob/${query.branch || 'master'}/resume.json）`}
+                    {`（https://github.com/${
+                      query.user || 'your-github-username'
+                    }/${query.user || 'your-github-username'}/blob/${
+                      query.branch || 'master'
+                    }/resume.json）`}
                   </span>
                 </span>
               </span>

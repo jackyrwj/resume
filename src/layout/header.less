@@ -1,10 +1,29 @@
 header {
   display: flex;
   justify-content: space-between;
-  padding: 8px 12px;
+	  align-items: center;
+	  padding: 8px 16px;
 
-  background: rgb(39, 63, 117);
-  color: rgba(255, 255, 255, 0.85);
+	  background: var(--primary-color, rgb(39, 63, 117));
+	  color: rgba(255, 255, 255, 0.9);
+	  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+
+	  .brand {
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	  }
+
+	  .brand-title {
+	    font-size: 16px;
+	    font-weight: 500;
+	    letter-spacing: 0.5px;
+	  }
+
+	  .brand-subtitle {
+	    font-size: 12px;
+	    opacity: 0.85;
+	  }
 
   .action-link {
     margin: 0 4px;

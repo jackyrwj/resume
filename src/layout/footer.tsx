@@ -4,7 +4,7 @@ import './footer.less';
 import { getSearchObj } from '@/helpers/location';
 
 const Footer: React.FC = () => {
-  const user = getSearchObj().user || 'visiky';
+  const user = getSearchObj().user || 'your-github-username';
 
   return (
     <footer>
@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
           <span className="author">
             by
             <span
-              style={{ marginLeft: '4px', cursor: 'pointer'}}
+              style={{ marginLeft: '4px', cursor: 'pointer' }}
               onClick={() => {
                 if (typeof window !== 'undefined') {
                   window.open(`https://github.com/${user}`);
@@ -27,11 +27,12 @@ const Footer: React.FC = () => {
         </div>
 
         <a
-          href={'https://github.com/visiky/resume.git'}
+          href={'https://github.com/your-github-username/resume.git'}
           style={{ position: 'absolute', right: '8px', fontSize: '12px' }}
           target="_blank"
         >
-          <GithubFilled style={{ color: '#fff', marginRight: '4px' }} /> 项目代码
+          <GithubFilled style={{ color: '#fff', marginRight: '4px' }} />{' '}
+          项目代码
         </a>
       </div>
     </footer>

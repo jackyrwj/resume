@@ -22,11 +22,11 @@ export const ConfigTheme: React.FC<Props> = props => {
       document.head.insertBefore($style, null);
     }
     const styles = `
-      :root {
-        --primary-color: ${props.color};
-        --tag-color: ${props.tagColor};
-      }
-    `;
+		  :root {
+		    --primary-color: ${props.color};
+		    --tag-color: ${props.tagColor};
+		  }
+		`;
     $style.innerHTML = styles;
   }, [props.color, props.tagColor]);
 
@@ -36,6 +36,7 @@ export const ConfigTheme: React.FC<Props> = props => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        flexWrap: 'wrap',
       }}
     >
       <div style={FormItemStyle}>
@@ -55,6 +56,64 @@ export const ConfigTheme: React.FC<Props> = props => {
           value={props.tagColor}
           onChange={v => props.onChange({ tagColor: v })}
         />
+      </div>
+      <div
+        style={{
+          marginLeft: 16,
+          display: 'flex',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+        }}
+      >
+        <span style={{ marginRight: 4 }}>
+          <FormattedMessage id="预设主题" defaultMessage="Theme presets" />
+        </span>
+        {[
+          {
+            key: 'default',
+            label: '蓝色 + 简洁',
+            color: '#2f5785',
+            tagColor: '#8bc34a',
+          },
+          {
+            key: 'print',
+            label: '黑白 · 适合打印',
+            color: '#000000',
+            tagColor: '#000000',
+          },
+          {
+            key: 'card',
+            label: '卡片式 + 阴影',
+            color: '#3f51b5',
+            tagColor: '#ff9800',
+          },
+        ].map(preset => (
+          <span
+            key={preset.key}
+            onClick={() =>
+              props.onChange({
+                color: preset.color,
+                tagColor: preset.tagColor,
+              })
+            }
+            style={{
+              padding: '2px 8px',
+              marginRight: 4,
+              marginTop: 4,
+              borderRadius: 2,
+              border: '1px solid #d9d9d9',
+              cursor: 'pointer',
+              fontSize: 12,
+              backgroundColor:
+                props.color === preset.color &&
+                props.tagColor === preset.tagColor
+                  ? 'rgba(0, 0, 0, 0.04)'
+                  : '#fff',
+            }}
+          >
+            {preset.label}
+          </span>
+        ))}
       </div>
     </div>
   );
