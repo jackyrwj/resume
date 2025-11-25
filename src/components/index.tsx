@@ -17,6 +17,7 @@ import { getConfig, saveToLocalStorage } from '@/helpers/store-to-local';
 import { fetchResume } from '@/helpers/fetch-resume';
 import { Drawer } from './Drawer';
 import { Resume } from './Resume';
+import { TemplateSelector } from './TemplateSelector';
 import type { ResumeConfig, ThemeConfig } from './types';
 
 import './index.less';
@@ -281,6 +282,7 @@ export const Page: React.FC = () => {
           />
         )}
         <div className="page">
+          {mode === 'read' && <TemplateSelector />}
           {config && (
             <Resume
               value={config}
